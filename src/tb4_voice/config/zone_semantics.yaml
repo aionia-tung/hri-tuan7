@@ -1,0 +1,62 @@
+# Gan nhan ngu nghia cho cac vung do segment_map tu dong tach ra.
+# Moi khu vuc duoc xac dinh bang mot "seed" (x, y) trong frame map: vung chua seed nhan
+# letter/name tuong ung, nen ket qua on dinh khi chinh tham so phan vung.
+# Vung khong co seed duoc dat chu cai tiep theo va ten "Khu vuc <chu cai>".
+
+segmentation:
+  core_dist: 1.1        # m, loi vung = pixel cach tuong > core_dist
+  merge_ratio: 0.75     # gop 2 vung neu cua chung rong >= 75% be rong vung hep hon
+  min_area: 9.0         # m^2, vung nho hon gop vao lang gieng
+  goal_clearance: 0.5   # m, diem dich cach vat can toi thieu
+  goal_open: 1.0        # m, do thong thoang mong muon cua diem dich
+
+robot_start: [0.0, 0.0]   # robot spawn (dock) - dung kiem tra diem dich di toi duoc
+
+# Vat the trong worlds/maze_objects.sdf (khong co trong map.pgm): x, y, ban kinh tranh (m)
+avoid:
+  - [8.0, -1.6, 0.8]    # nguoi
+  - [8.0, -2.7, 0.8]    # ghe
+  - [4.4, -9.2, 0.9]    # ban
+  - [4.4, -8.5, 0.8]    # ghe gap
+  - [-6.2, -2.0, 0.8]   # nguoi
+  - [-5.7, 8.6, 0.8]    # nguoi
+  - [-6.7, 9.1, 0.8]    # ghe
+  - [-3.0, 1.5, 0.8]    # nguoi dung giua hanh lang
+
+zones:
+  - letter: A
+    name: Phòng học
+    aliases: [lớp học]
+    seed: [-6.4, 7.9]
+  - letter: B
+    name: Phòng kho
+    aliases: [nhà kho, kho]
+    seed: [5.1, 6.1]
+  - letter: C
+    name: Hành lang
+    aliases: [hành lang chính]
+    seed: [-2.9, 1.4]
+  - letter: D
+    name: Văn phòng
+    aliases: [phòng giáo viên]
+    seed: [-8.3, 2.2]
+  - letter: E
+    name: Sảnh chính
+    aliases: [sảnh, trạm sạc]
+    seed: [1.4, -1.6]
+  - letter: F
+    name: Thư viện
+    aliases: []
+    seed: [-6.9, -5.2]
+  - letter: G
+    name: Phòng thí nghiệm
+    aliases: [phòng lab]
+    seed: [6.8, -2.3]
+  - letter: H
+    name: Căng tin
+    aliases: [nhà ăn]
+    seed: [-0.2, -7.7]
+  - letter: I
+    name: Phòng y tế
+    aliases: []
+    seed: [6.4, -7.9]

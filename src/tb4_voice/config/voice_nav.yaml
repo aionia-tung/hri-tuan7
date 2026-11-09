@@ -1,0 +1,14 @@
+# Tham so node (zones_file mac dinh = share/tb4_voice/maps/zones.yaml)
+voice_nav:
+  ros__parameters:
+    undock_first: true        # robot spawn tren dock -> undock truoc goal dau tien
+    goal_timeout_sec: 300.0   # sim chay cham (RTF ~0.15-0.5) -> de rong
+    max_retries: 1            # gui lai 1 lan neu Nav2 ABORTED
+    dwell_sec: 2.0            # dung tai diem trung gian (lenh "tu A den B")
+    preview_path: true        # ComputePathToPose -> /voice_nav/planned_route
+
+speech_recognition:
+  ros__parameters:
+    model_path: "~/.cache/vosk/vosk-model-small-vn-0.4"
+    min_confidence: 0.55      # bo cau co do tin cay trung binh thap (nhieu nen)
+    file_interval_sec: 45.0   # source:=files - nghi giua cac lenh de robot kip di
